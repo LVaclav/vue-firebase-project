@@ -2,6 +2,13 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import firebase from "firebase/compat/app";
+import { firestorePlugin } from 'vuefire'
+
+Vue.use(firestorePlugin)
+
+// import { getDatabase } from "firebase/database";
+import { plugin, defaultConfig } from '@formkit/vue'
+
 
 /* code from our Firebase console */
 var firebaseConfig = {
@@ -14,11 +21,10 @@ var firebaseConfig = {
     measurementId: "G-9XEZJ7NX45"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 const app = createApp(App);
-
 app.use(router);
+app.use(plugin, defaultConfig);
 
 app.mount("#app");

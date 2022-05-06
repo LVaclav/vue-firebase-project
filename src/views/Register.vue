@@ -62,7 +62,7 @@ import { ref } from 'vue'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import { useRouter } from 'vue-router' // import router
-import { doc, setDoc } from "firebase/firestore"
+// import { doc, setDoc } from "firebase/firestore"
 const email = ref('')
 const password = ref('')
 const router = useRouter() // get a reference to our vue router
@@ -80,12 +80,11 @@ const register = () => {
         console.log(error.code)
         alert(error.message);
       });
-    
+}
 // Add a new document in collection "users"
-setDoc(doc(db, "users"), {
-  name: "",
-  email: ""
-});
-  }
+// setDoc(doc(db, "users"), {
+//   name: "",
+//   email: ""
+// });
 
 </script>
